@@ -49,18 +49,15 @@ function displayData(data) {
   const temperatureElement = document.querySelector(".temperature .text");
   const descriptionElement = document.querySelector(".description");
 
+  const toCelsius = ((data.temp - 32) * (5 / 9)).toFixed(2);
+
   resetDisplayedData(resettableFields);
 
   locationElement.textContent = data.address;
-
   dateElement.textContent = data.datetime;
-
   weatherElementIcon.textContent = "🌤️";
-
   weatherElementText.textContent = `${data.conditions}`;
-
-  temperatureElement.innerHTML = `${data.temp}°C`;
-
+  temperatureElement.innerHTML = `${toCelsius}°C`;
   descriptionElement.textContent = data.description;
 }
 
@@ -68,13 +65,15 @@ async function getWeatherData() {
   try {
     const response = await fetch(url);
     const data = await response.json();
+    let n = 0;
     let newData = {
       address: data.address,
-      datetime: data.currentConditions.datetime,
-      conditions: data.currentConditions.conditions,
-      temp: data.currentConditions.temp,
-      description: data.description
+      datetime: data.days[n].datetime,
+      conditions: data.days[n].conditions,
+      temp: data.days[n].temp,
+      description: data.days[n].description
     };
+    console.log(data);
     displayData(newData);
     if (info.classList.contains("hide")) {
       toggleVisibility(info);
@@ -83,7 +82,8 @@ async function getWeatherData() {
     console.error("Error fetching weather data:", error);
     resetDisplayedData(resettableFields); //reset displayed data
     alert("Couldn't fetch data. Check for misspelled city or country.");
-    toggleVisibility(info); //hide info
+    info.classList.remove("show"); //hide info
+    info.classList.add("hide");
   }
 }
 
