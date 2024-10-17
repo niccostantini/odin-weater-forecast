@@ -26,6 +26,14 @@
                     <label for="country">COUNTRY</label>
                     <input type="text" id="country" name="country" required>
                 </div>
+                <div class="day-selector">
+                    <label for="day">DAY</label>
+                    <select name="day" id="day">
+                        <option value="today" id="0">Today</option>
+                        <option value="tomorrow" id="1">Tomorrow</option>
+                        <option value="day-after-tomorrow" id="2">Day After Tomorrow</option>
+                    </select>
+                </div>
             </div>
             
             <div class="formBtns">
@@ -37,7 +45,21 @@
     </div>
 
     <div id="info" class="container hide">
-        <div class="content">
+        <div class="today content">
+            <h2 class="location">Template</h2>
+            <h4 class="date">11:00:48</h4>
+            <p class="weather"><span class="icon">☀️</span> <span class="text">Sunny</span></p>
+            <p class="temperature"><span class="thermometer">🌡️</span> <span class="text">25°C</span></p>
+            <p class="description">Similar temperatures continuing with a chance of rain tomorrow, Saturday & Sunday.</p>
+        </div>
+        <div class="tomorrow content">
+            <h2 class="location">Template</h2>
+            <h4 class="date">11:00:48</h4>
+            <p class="weather"><span class="icon">☀️</span> <span class="text">Sunny</span></p>
+            <p class="temperature"><span class="thermometer">🌡️</span> <span class="text">25°C</span></p>
+            <p class="description">Similar temperatures continuing with a chance of rain tomorrow, Saturday & Sunday.</p>
+        </div>
+        <div class="day-after-tomorrow content">
             <h2 class="location">Template</h2>
             <h4 class="date">11:00:48</h4>
             <p class="weather"><span class="icon">☀️</span> <span class="text">Sunny</span></p>
