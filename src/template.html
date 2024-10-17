@@ -4,18 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
-
+    <style>
+        
+    </style>
 </head>
 <body>
     <div class="header">
-        <h1>Nicco's fave template repo</h1>
+        <h1>Nicco's Weather Forecast</h1>
     </div>
+
     <div class="container hide">
+        <div class="content">
+        <form>
+            <div class="textboxes">
+                <div class="city-selector">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                
+                <div class="country-selector">
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+            </div>
+            
+            <div class="formBtns">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+        </div>
+    </div>
+
+    <div id="info" class="container hide">
         <div class="content">
             <h2 class="location">Template</h2>
             <h4 class="date">11:00:48</h4>
-            <p class="weather"><span class="icon">☀️</span> Sunny</p>
-            <p class="temperature"><span class="thermometer">🌡️</span> 25°C</p>
+            <p class="weather"><span class="icon">☀️</span> <span class="text">Sunny</span></p>
+            <p class="temperature"><span class="thermometer">🌡️</span> <span class="text">25°C</span></p>
             <p class="description">Similar temperatures continuing with a chance of rain tomorrow, Saturday & Sunday.</p>
         </div>
     </div>

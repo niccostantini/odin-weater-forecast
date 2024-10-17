@@ -11,8 +11,53 @@ body {
     text-align: center;
     color: white;
 }
+
+form {
+            display: flex;
+            flex-direction: column;
+        }
+        form div {
+            margin-bottom: 15px;
+        }
+
+        form .textboxes {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 40px;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .formBtns {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+        }
+        button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+        }
+
 .container {
-    max-width: 960px;
+    max-width: 640px;
     margin: 0 auto;
     padding: 20px;
 }
