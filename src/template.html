@@ -13,55 +13,59 @@
         <h1>Nicco's Weather Forecast</h1>
     </div>
 
-    <div class="container hide">
-        <div class="content">
-        <form>
-            <div class="textboxes">
-                <div class="city-selector">
-                    <label for="city">CITY</label>
-                    <input type="text" id="city" name="city" pattern="[A-Za-z]+" required>
+    <main>
+        <div class="container hide">
+            <div class="content">
+            <form>
+                <div class="textboxes">
+                    <div class="city-selector">
+                        <label for="city">CITY</label>
+                        <input type="text" id="city" name="city" pattern="[A-Za-z]+" required>
+                    </div>
+        
+                    <div class="country-selector">
+                        <label for="country">COUNTRY</label>
+                        <input type="text" id="country" name="country" pattern="[A-Za-z]+" required>
+                    </div>
+                    <div class="day-selector">
+                        <label for="day">DAY</label>
+                        <select name="day" id="day">
+                            <option value="today" id="0">Today</option>
+                            <option value="tomorrow" id="1">Tomorrow</option>
+                            <option value="day-after-tomorrow" id="2">Day After Tomorrow</option>
+                        </select>
+                    </div>
                 </div>
-                
-                <div class="country-selector">
-                    <label for="country">COUNTRY</label>
-                    <input type="text" id="country" name="country" pattern="[A-Za-z]+" required>
+        
+                <div class="formBtns">
+                    <button type="submit">Forecast!</button>
+                    <button type="reset">Reset</button>
                 </div>
-                <div class="day-selector">
-                    <label for="day">DAY</label>
-                    <select name="day" id="day">
-                        <option value="today" id="0">Today</option>
-                        <option value="tomorrow" id="1">Tomorrow</option>
-                        <option value="day-after-tomorrow" id="2">Day After Tomorrow</option>
-                    </select>
-                </div>
+            </form>
             </div>
-            
-            <div class="formBtns">
-                <button type="submit">Forecast!</button>
-                <button type="reset">Reset</button>
+        </div>
+        <div id="loading" class="hide">
+            <div class="content">
+                <h2>Charging...</h2>
+                <p>Please wait while we fetch the data for you.</p>
             </div>
-        </form>
         </div>
-    </div>
+        <div id="info" class="container hide">
+            <div class="today content">
+                <h2 class="location">Template</h2>
+                <h4 class="date">11:00:48</h4>
+                <p class="weather"><span class="icon">☀️</span> <span class="text">Sunny</span></p>
+                <p class="temperature"><span class="thermometer">🌡️</span> <span class="text">25°C</span></p>
+                <p class="description">Similar temperatures continuing with a chance of rain tomorrow, Saturday & Sunday.</p>
+            </div>
+        </div>
+    </main>
 
-    <div id="loading" class="hide">
-        <div class="content">
-            <h2>Charging...</h2>
-            <p>Please wait while we fetch the data for you.</p>
-        </div>
-    </div>
-
-    <div id="info" class="container hide">
-        <div class="today content">
-            <h2 class="location">Template</h2>
-            <h4 class="date">11:00:48</h4>
-            <p class="weather"><span class="icon">☀️</span> <span class="text">Sunny</span></p>
-            <p class="temperature"><span class="thermometer">🌡️</span> <span class="text">25°C</span></p>
-            <p class="description">Similar temperatures continuing with a chance of rain tomorrow, Saturday & Sunday.</p>
-        </div>
-    </div>
     <div class="footer">
         <p>&copy; 2024 Niccolò Costantini</p>
+        <a href="https://github.com/nicccostantini" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#586069" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
     </div>
 </body>
 </html>
