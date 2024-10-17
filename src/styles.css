@@ -15,8 +15,14 @@ body {
 
     h1 {
         z-index: 1;
+        text-shadow: #24292e 0px 0px 20px;
     }
 
+}
+
+#loading {
+    display: none;
+    padding: 20px;
 }
 
 form {
