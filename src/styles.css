@@ -26,13 +26,19 @@ form {
             justify-content: flex-start;
             gap: 40px;
         }
+        .city-selector, .country-selector {
+            display: flex;
+            flex-direction: column-reverse;
+        }
         label {
             margin-bottom: 5px;
             font-weight: bold;
+            text-align: right;
         }
         input[type="text"] {
             padding: 8px;
-            border: 1px solid #ccc;
+            border: none;
+            border-bottom: 1px solid #ccc;
             border-radius: 4px;
         }
         .formBtns {
