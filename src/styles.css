@@ -10,6 +10,13 @@ body {
     padding: 20px;
     text-align: center;
     color: white;
+    background-image: url('https://raw.githubusercontent.com/niccostantini/odin-weater-forecast/refs/heads/main/src/assets/images/header-image.webp');
+    background-position: -1000px 600px;
+
+    h1 {
+        z-index: 1;
+    }
+
 }
 
 form {
