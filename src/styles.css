@@ -58,6 +58,12 @@ form {
             border: none;
             border-bottom: 1px solid #ccc;
             border-radius: 4px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input[type="text"]:focus, select:focus {
+            background-color: #e4e4e4;
         }
 
         select {
@@ -81,6 +87,7 @@ form {
             border-radius: 4px;
             cursor: pointer;
             transition: all 0.3s ease;
+            outline: none;
         }
         button[type="submit"] {
             background-color: #4CAF50;
@@ -89,7 +96,7 @@ form {
         button[type="submit"]:hover {
             background-color: #57c85c;
         }
-        button[type="submit"]:active {
+        button[type="submit"]:active, button[type="submit"]:focus {
             background-color: #397d3b;
         }
         button[type="reset"] {
@@ -99,7 +106,7 @@ form {
         button[type="reset"]:hover {
             background-color: #f05c5a;
         }
-        button[type="reset"]:active {
+        button[type="reset"]:active, button[type="reset"]:focus {
             background-color: #c62828;
         }
 
