@@ -141,15 +141,30 @@ toggleVisibility(info) //hide #info on page load
 
 //query the API through the form
 const form = document.querySelector("form");
-form.addEventListener("submit", function (event) {
+form.addEventListener("submit", async function (event) {
+  
   //retrieve index corresponding to selected day
   const dayElement = document.querySelector("#day");
   let dayIndex = dayElement.options[dayElement.selectedIndex].id;
   console.log(dayIndex);
 
+  //prevent default form submission
   event.preventDefault();
+
+  //get city and country from form
   city = form.elements.city.value;
   country = form.elements.country.value;
   url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${country}?key=${key}`;
-  getWeatherData(dayIndex);
+
+  //display loading message
+  const loading = document.querySelector("#loading");
+  loading.style.display = "block";
+  toggleVisibility(loading);
+
+  //fetch data
+  await getWeatherData(dayIndex);
+
+  //hide loading message
+  loading.style.display = "none";
+  toggleVisibility(loading);
 });
