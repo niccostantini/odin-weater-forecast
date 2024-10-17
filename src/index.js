@@ -9,3 +9,16 @@ document.addEventListener("DOMContentLoaded", function () {
     container.classList.toggle("show");
   }, 200);
 });
+
+//fetch data from Visual Crossing API using the key UHUAQQ624THSMFADZF7E9S556
+const key = "UHUAQQ624THSMFADZF7E9S556";
+let city = "Rome";
+let country = "Italy";
+let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${country}?key=${key}`;
+async function getWeatherData() {
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log(data);
+}
+
+getWeatherData();
