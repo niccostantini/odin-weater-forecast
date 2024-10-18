@@ -42,7 +42,7 @@ const key = "UHUAQQ624THSMFADZF7E9S556";
 // let country = prompt("Enter country name");
 let city = "Otrsggsanto";
 let country = "Itdfhgsdaly";
-let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${country}?key=${key}`;
+let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${key}`;
 
 function resetDisplayedData(fields) {
   fields.forEach((field) => {
