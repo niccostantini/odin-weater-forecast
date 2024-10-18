@@ -153,8 +153,7 @@ form.addEventListener("submit", async function (event) {
 
   //get city and country from form
   city = form.elements.city.value;
-  country = form.elements.country.value;
-  url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city},${country}?key=${key}`;
+  url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${key}`;
 
   //display loading message
   const loading = document.querySelector("#loading");
