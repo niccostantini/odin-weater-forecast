@@ -1,16 +1,26 @@
 import "./styles.css";
 import "./normalize.css";
 
+//import images
+import clear from "./assets/images/clear.webp";
+import cloudy from "./assets/images/clody.webp";
+import cloudRainy from "./assets/images/cloudy-rainy.webp";
+import overcast from "./assets/images/overcast.webp";
+import partiallyCloudyRainy from "./assets/images/partially-cloudy-rainy.webp";
+import partiallyCloudy from "./assets/images/partially-cloudy.webp";
+import snowy from "./assets/images/snowy.webp";
+import stormy from "./assets/images/stormy.webp";
+
 const weatherImages = {
-  "clear": "https://raw.githubusercontent.com/niccostantini/odin-weater-forecast/refs/heads/main/src/assets/images/clear.webp",
-  "cloudy": "https://raw.githubusercontent.com/niccostantini/odin-weater-forecast/refs/heads/main/src/assets/images/clody.webp",
-  "cloudRainy": "https://raw.githubusercontent.com/niccostantini/odin-weater-forecast/refs/heads/main/src/assets/images/cloudy-rainy.webp",
-  "overcast": "https://raw.githubusercontent.com/niccostantini/odin-weater-forecast/refs/heads/main/src/assets/images/overcast.webp",
-  "partiallyCloudyRainy": "https://raw.githubusercontent.com/niccostantini/odin-weater-forecast/refs/heads/main/src/assets/images/partially-cloudy-rainy.webp",
-  "partiallyCloudy": "https://raw.githubusercontent.com/niccostantini/odin-weater-forecast/refs/heads/main/src/assets/images/partially-cloudy.webp",
-  "snowy": "https://raw.githubusercontent.com/niccostantini/odin-weater-forecast/refs/heads/main/src/assets/images/snowy.webp",
-  "stormy": "https://raw.githubusercontent.com/niccostantini/odin-weater-forecast/refs/heads/main/src/assets/images/stormy.webp"
-}
+    clear,
+    cloudy,
+    cloudRainy,
+    overcast,
+    partiallyCloudyRainy,
+    partiallyCloudy,
+    snowy,
+    stormy
+};
 
 const resettableFields = [
   document.querySelector(".location"),
@@ -38,12 +48,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //fetch data from Visual Crossing API using the key UHUAQQ624THSMFADZF7E9S556
 const key = "UHUAQQ624THSMFADZF7E9S556";
-// let city = prompt("Enter city name");
-// let country = prompt("Enter country name");
-let city = "Otrsggsanto";
-let country = "Itdfhgsdaly";
+
+//default city
+let city = "Otranto";
 let url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${key}`;
 
+//reset displayed data
 function resetDisplayedData(fields) {
   fields.forEach((field) => {
     field.textContent = "Couldn't fetch data";
@@ -52,6 +62,7 @@ function resetDisplayedData(fields) {
   fields[2].textContent = "？";
 }
 
+//display data on the page
 function displayData(data) {
   const locationElement = document.querySelector(".location");
   const dateElement = document.querySelector(".date");
@@ -97,12 +108,16 @@ function displayData(data) {
     icon = "🌤️";
   }
 
+  //set background image
   info.style.backgroundImage = `linear-gradient(to bottom, rgba(224, 224, 224, 0.3), rgba(234, 234, 234, 0.9)), url('${imgUrl}')`;
 
+  //convert temperature from Fahrenheit to Celsius
   const toCelsius = ((data.temp - 32) * (5 / 9)).toFixed(2);
 
+  //reset displayed data
   resetDisplayedData(resettableFields);
 
+  //display data
   locationElement.textContent = data.address;
   dateElement.textContent = data.datetime;
   weatherElementIcon.textContent = icon;
@@ -111,10 +126,14 @@ function displayData(data) {
   descriptionElement.textContent = data.description;
 }
 
+//fetch weather data
 async function getWeatherData(index = 0) {
   try {
+    //fetch data
     const response = await fetch(url);
+    //parse data
     const data = await response.json();
+    //log data
     let n = index;
     let newData = {
       address: data.address,
@@ -124,19 +143,22 @@ async function getWeatherData(index = 0) {
       description: data.days[n].description
     };
     console.log(newData);
+    //display data
     displayData(newData);
+    //show info
     if (info.classList.contains("hide")) {
       toggleVisibility(info);
     }
-  } catch (error) {
+  } catch (error) { //catch errors
     console.error("Error fetching weather data:", error);
     resetDisplayedData(resettableFields); //reset displayed data
-    alert("Couldn't fetch data. Check for misspelled city or country.");
+    alert("Couldn't fetch data. Check for misspelled city name or try again later."); //alert user
     info.classList.remove("show"); //hide info
-    info.classList.add("hide");
+    info.classList.add("hide");    //
   }
 }
 
+//hide #info on page load
 toggleVisibility(info) //hide #info on page load
 
 //query the API through the form
@@ -152,7 +174,7 @@ form.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   //get city and country from form
-  city = form.elements.city.value;
+  let city = form.elements.city.value;
   url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=${key}`;
 
   //display loading message
