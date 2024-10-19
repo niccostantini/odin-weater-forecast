@@ -182,9 +182,11 @@ form.addEventListener("submit", async function (event) {
   loading.style.display = "block";
   toggleVisibility(loading);
 
+  await new Promise(resolve => setTimeout(resolve, 500));
+
   //fetch data
   await getWeatherData(dayIndex);
-
+  
   //hide loading message
   loading.style.display = "none";
   toggleVisibility(loading);

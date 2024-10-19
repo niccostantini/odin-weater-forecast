@@ -22,10 +22,10 @@ body {
 
 }
 
-#loading {
+/* #loading {
     display: none;
     padding: 20px;
-}
+} */
 
 form {
             display: flex;
@@ -139,6 +139,13 @@ form {
     background-position: center;
     background-color: rgba(0, 0, 0, 0.9); /* Add a semi-transparent background color */
     border-radius: 6px;
+}
+
+#loading {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
 }
 
 #info .content {
