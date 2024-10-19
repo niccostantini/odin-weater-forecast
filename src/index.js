@@ -10,6 +10,7 @@ import partiallyCloudyRainy from "./assets/images/partially-cloudy-rainy.webp";
 import partiallyCloudy from "./assets/images/partially-cloudy.webp";
 import snowy from "./assets/images/snowy.webp";
 import stormy from "./assets/images/stormy.webp";
+import loading from "./assets/images/loading.gif";
 
 const weatherImages = {
     clear,
